@@ -19,14 +19,12 @@ import java.util.*;
 public class UnitExamController {
     @Resource(name = IUnitExamService.SERVICE_NAME)
     private IUnitExamService unitExamService;
-
-    @RequestMapping("/showUnitExam.do")
+    @RequestMapping("/getUnitExam.do")
     @ResponseBody
-    public CpaResult showUnitExam(String typeCode) {
+    public CpaResult getUnitExam(String typeCode) {
         Object[] params = {typeCode};
         String where = "o.testType=? ";
         CpaResult result = unitExamService.getUnitExam(where, params);
-
         return result;
     }
 }

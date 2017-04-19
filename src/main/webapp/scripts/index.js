@@ -19,12 +19,14 @@ var routerApp = angular.module('myapp', ['ui.router']);
 routerApp.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('navbar', {  //路由状态
-            url: '/navbar',  //路由路径
-            templateUrl: 'navbar.html'  //路由填充的模板
+            url: '/navbar/:typeCode',  //路由路径
+            templateUrl: 'navbar.html',  //路由填充的模板
+            controller: 'navbarCtrl' //此处若写controller,则必须指定一个存在的组件,否则页面可能不正常显示
         })
         .state('navbar.main', {  //路由状态
             url: '/main',  //路由路径
-            templateUrl: 'main.html'  //路由填充的模板
+            templateUrl: 'main.html',//路由填充的模板
+            controller: 'mainCtrl'
         })
         .state('navbar.unitExam', {  //路由状态
             url: '/unitExam', //路由路径
@@ -34,3 +36,13 @@ routerApp.config(function ($stateProvider, $urlRouterProvider) {
     // 默认路径，在status中匹配不到时执行
     $urlRouterProvider.otherwise('/navbar/main');
 });
+// 定义navbarCtrl控制器，对应路由中设置的controller
+routerApp.controller('navbarCtrl', function ($scope, $stateParams) {
+    console.log($stateParams.typeCode);
+    }
+);
+routerApp.controller('mainCtrl',function($scope){
+    $scope.name="kanyun"
+})
+
+

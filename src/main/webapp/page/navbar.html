@@ -11,7 +11,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#"><img alt="Brand" src="../images/cpa.png"></a>
+                <a class="navbar-brand" href="javascript:void(0)"><img alt="Brand" src="../images/cpa.png"></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -25,11 +25,11 @@
                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">在线练习 <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu" id="unitExam">
-                            <li ui-sref-active="active" ui-sref=".unitExam"><a href="javascript:void(0)" typeCode="1">会计基础</a></li>
+                            <li ui-sref-active="active" ui-sref=".unitExam({typeCode:'1'})"><a href="javascript:void(0)" typeCode="1">会计基础</a></li>
                             <li ui-sref-active="active" class="divider"></li>
-                            <li ui-sref-active="active" ui-sref=".unitExam"><a href="javascript:void(0)" typeCode="2">会计电算化</a></li>
+                            <li ui-sref-active="active" ui-sref=".unitExam({typeCode:'2'})"><a href="javascript:void(0)" typeCode="2">会计电算化</a></li>
                             <li class="divider"></li>
-                            <li ui-sref-active="active" ui-sref=".unitExam"><a href="javascript:void(0)" typeCode="3">财经法规与职业道德</a></li>
+                            <li ui-sref-active="active" ui-sref=".unitExam({typeCode:'3'})"><a href="javascript:void(0)" typeCode="3">财经法规与职业道德</a></li>
                         </ul>
                     </li>
                     <li><a href="javascript:void(0)">模拟测验</a></li>
@@ -45,6 +45,5 @@
         </div><!-- /.container-fluid -->
     </nav>
 </div> <!--页头结束-->
-<div ui-view>
+<div ui-view></div>
 
-</div>

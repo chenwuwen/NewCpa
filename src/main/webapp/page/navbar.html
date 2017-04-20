@@ -1,5 +1,5 @@
 <!--页头开始-->
-<div id="header" class="page-header" role="navigation">
+<div id="header" class="page-header" role="navigation" ng-controller="navbarCtrl">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -20,7 +20,7 @@
                 <ul class="nav navbar-nav">
                     <!--ui-sref=".required"说明当点击这个链接的时候路由会跳转到相应的包含required状态的路由中-->
                     <!--这里使用ui-sref链接路由状态，将该状态的url替换到href中，相当与href="#/PageTab/xiaomi"-->
-                    <li ui-sref-active="active" ui-sref=".main"><a href="javascript:void(0)">首页</a></li>
+                    <li ui-sref-active="active" ui-sref=".main"><a href="javascript:void(0)" ng-click="send()">首页</a></li>
                     <li class="dropdown">
                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
                            aria-expanded="false">在线练习 <span class="caret"></span></a>

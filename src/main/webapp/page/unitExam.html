@@ -3,7 +3,7 @@
         <div class="col-sm-5 col-sm-offset-1">
             <div class="panel panel-default" ng-repeat='exam in exams.data'>
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{exam.stem}}</h3>
+                    <h3 class="panel-title">{{$index+1}}.{{exam.stem}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="radio">

@@ -34,7 +34,7 @@ public class UserServiceImpl extends CommonServiceImpl<Integer, CpaUser> impleme
         String where = "o.username = ?";
         CpaUser user = null;
         CpaResult result = userdao.getScrollData(-1, -1, where, params);
-        if (result.getTotalCount() > 0) {
+        if (result.getTotalCount() == 1) {
             List list = (List) result.getData();
             user = (CpaUser) list.get(0);
             if (user.getPassword().equals(md5_pwd)) {

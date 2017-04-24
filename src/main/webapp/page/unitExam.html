@@ -1,20 +1,16 @@
-<div class="container-fluid" ng-controller="UnitExamCtrl">
+<div class="container-fluid">
     <div class="row">
         <div class="col-sm-5 col-sm-offset-1">
-            <div class="panel panel-default">
+            <div class="panel panel-default" ng-repeat='exam in exams.data'>
                 <div class="panel-heading">
-                    <h3 class="panel-title">题干</h3>
+                    <h3 class="panel-title">{{exam.stem}}</h3>
                 </div>
                 <div class="panel-body">
                     <div class="radio">
-                        <label><input type="radio" name="optionsRadios" id="optionsRadios2"
-                                      value="option2">选项一</label><br/>
-                        <label><input type="radio" name="optionsRadios" id="optionsRadios2"
-                                      value="option2">选项二</label><br/>
-                        <label><input type="radio" name="optionsRadios" id="optionsRadios2"
-                                      value="option2">选项三</label><br/>
-                        <label><input type="radio" name="optionsRadios" id="optionsRadios2"
-                                      value="option2">选项四</label><br/>
+                        <div ng-repeat='option in exam.options'>
+                            <label><input type="radio" name="optionsRadios" id="optionsRadios2"
+                                          value="option2">{{option}}</label>
+                        </div>
                     </div>
                 </div>
             </div>

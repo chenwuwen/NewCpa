@@ -11,56 +11,70 @@
 // 	})
 // 以上为原Jquery方式
 
-//该Js为采用anjular-ui-router方法，来进行页面转换
+//该Js为采用anjular-ui-router组件，来进行页面转换
 
-//定义自己的module(routerApp)
-//中括号中的是这个module的依赖
+//定义自己的module(app),括号中的是这个module的依赖
 var app = angular.module('myapp', ['ui.router']);
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('navbar', {  //路由状态
-            url: '/:typeCode',  //路由路径
+            url: '/navbar',  //路由路径
             templateUrl: 'navbar.html',  //路由填充的模板
             controller: 'navbarCtrl' //此处若写controller,则必须指定一个存在的组件,否则页面可能不正常显示
+            // resolve:{}
         })
-        .state('navbar.main', {  //路由状态
-            url: '/main',  //路由路径
-            templateUrl: 'main.html',//路由填充的模板
+        .state('navbar.main', {
+            // abstract: true, //abstract属性是用来定义抽象路由的，在路由的嵌套定义的时候会使用到，不涉及路由嵌套时，须去掉该设置，否则会造成模板不加载
+            url: '/main',
+            params:{typeCode:null},  // 定义一个空对象，接收数据，同样也可以传递普通参数，但都不会在url上显示
+            templateUrl: 'main.html',
             controller: 'mainCtrl'
-            // params:{} //目标页面定义接收参数
         })
-        .state('navbar.unitExam', {  //路由状态
-            url: '/unitExam', //路由路径
-            templateUrl: 'unitExam.html',//路由填充的模板
-            controller: 'UnitExamCtrl' //控制器
+        .state('navbar.unitExam', {
+            url: '/unitExam/:typeCode',
+            templateUrl: 'unitExam.html',
+            controller: 'UnitExamCtrl'
         });
     // 默认路径，在status中匹配不到时执行
     $urlRouterProvider.otherwise('/navbar/main');
 });
 // 定义navbarCtrl控制器，对应路由中设置的controller
 app.controller('navbarCtrl', function ($scope, $stateParams, $http) {
-    // console.log($stateParams.typeCode);
-    // $scope.send = function(){
-    //     $http({
-    //         method: 'POST',
+    // $scope.typeCode = $stateParams.typeCode;
+    // $http({
+    //         method: 'GET',
     //         url: '/cpa/unitExam/getUnitExam.do',
-    //         params:{'typeCode':'1'}
+    //         // data:{'typeCode':typeCode}
+    //         // params:{typeCode:typeCode}
     //     }).then(function successCallback(response) {
     //         // 请求成功执行代码
-    //         alert('success');
+    //         $scope.exams = response.data;
+    //         console.log(response.data)
     //     }, function errorCallback(response) {
     //         // 请求失败执行代码
     //         alert('error');
     //     })
     //
-    // }
     }
 );
 app.controller('mainCtrl',function($scope){
     $scope.name="kanyun"
 });
-app.controller('UnitExamCtrl',function($scope){
-    // $scope.name="kanyun"
+app.controller('UnitExamCtrl',function($scope, $stateParams, $http){
+    $scope.typeCode = $stateParams.typeCode;
+    var typeCode = $stateParams.typeCode;
+    $http({
+        method: 'GET',
+        url: '/cpa/unitExam/getUnitExam.do',
+        // data:{'typeCode':typeCode}
+        params:{typeCode:typeCode}
+    }).then(function successCallback(response) {
+        // 请求成功执行代码
+        $scope.exams = response.data;
+    }, function errorCallback(response) {
+        // 请求失败执行代码
+        alert('error');
+    })
 });
 
 

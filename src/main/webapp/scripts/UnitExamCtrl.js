@@ -13,12 +13,13 @@ app.controller('UnitExamCtrl',function($scope, $stateParams, $http){
     }).then(function successCallback(response) {
         // 请求成功执行代码
         $scope.exams = response.data;
+        console.log(response);
     }, function errorCallback(response) {
         // 请求失败执行代码
         alert('error');
     })
 });
-app.filter('ABCDEFGH',function () { //可以注入依赖
+app.filter('CovertKey',function () { //可以注入依赖
     return function (x) {
         switch (x){
             case 0:

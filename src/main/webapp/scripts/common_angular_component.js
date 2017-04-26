@@ -9,12 +9,12 @@
  * @example &lt;input type="radio" ng-model="paomian" value="kangshifu" ng-icheck&gt;
  *          &lt;input type="checkbox" class="icheckbox" name="mantou" ng-model="mantou" ng-icheck checked&gt;
  */
-$compileProvider.directive('ngIcheck', function($compile) {
+app.directive('ngIcheck', function($compile) {
     return {
         restrict : 'A',
-        require : '?ngModel',
-        link : function($scope, $element, $attrs, $ngModel) {
-            if (!$ngModel) {
+        require : 'ngModel',
+        link : function($scope, $element, $attrs, ngModel) {
+            if (!ngModel) {
                 return;
             }
             //using iCheck

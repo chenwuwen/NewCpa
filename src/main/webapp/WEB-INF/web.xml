@@ -46,7 +46,11 @@
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:spring-mvc.xml</param-value>
 		</init-param>
+		<!--启动web时就加载springMVC的servlet，即启动时就在家springMVC的配置文件-->
 		<load-on-startup>0</load-on-startup>
+		<!--可异步执行，项目会比较流畅-->
+		<!--配置异步时若报错，因为是3.0的新特性，可将2.5改为3.0-->
+		<async-supported>true</async-supported>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>

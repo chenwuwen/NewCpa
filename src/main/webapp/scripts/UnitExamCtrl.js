@@ -10,11 +10,11 @@ app.controller('UnitExamCtrl',function($scope, $stateParams, $http){
         url: '/cpa/unitExam/getUnitExam.do',
         // data:{'typeCode':typeCode}
         params:{typeCode:typeCode}
-    }).then(function successCallback(response) {
+    }).then(function onSuccess(response) {
         // 请求成功执行代码
         $scope.exams = response.data;
         console.log(response);
-    }, function errorCallback(response) {
+    }).catch(function onError(response) {
         // 请求失败执行代码
         alert('error');
     })

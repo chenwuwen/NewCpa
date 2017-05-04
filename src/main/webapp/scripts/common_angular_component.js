@@ -12,9 +12,9 @@
 app.directive('ngIcheck', function($compile) {
     return {
         restrict : 'A',
-        require : 'ngModel',
-        link : function($scope, $element, $attrs, ngModel) {
-            if (!ngModel) {
+        require : '?ngModel',
+        link : function($scope, $element, $attrs, $ngModel) {
+            if (!$ngModel) {
                 return;
             }
             //using iCheck
@@ -40,3 +40,4 @@ app.directive('ngIcheck', function($compile) {
         },
     };
 });
+

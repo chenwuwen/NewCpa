@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +24,7 @@ public class UserController {
 	/* 登陆检查 */
 	@RequestMapping("/login.do")
 	@ResponseBody
-	public CpaResult toLogin(String v_code,String username,String password,HttpSession session){
+	public CpaResult toLogin(String v_code, String username, String password,HttpSession session){
 		CpaResult result = new CpaResult();
 		String s_code = (String) session.getAttribute("code");
 		// 先比较验证码(equalsIgnoreCase忽略大小写，equals不忽略)

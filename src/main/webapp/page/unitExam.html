@@ -8,8 +8,8 @@
                     <ul class="list" style="margin:0;padding:0;list-style:none">
                         <li ng-repeat='(key,option) in exam.options'>
                             <label>
-                               <input type="radio" ng-model="option" name="optionsRadio{{i}}" value="{{key | CovertKey}}" ng-icheck >
-                                <!--{{key | CovertKey}} .{{option}}-->
+                               <input type="radio"  name="optionsRadio{{i}}" value="{{key | CovertKey}}" ng-icheck >
+                                {{key | CovertKey}} .{{option}}
                             </label>
                         </li>
                     </ul>

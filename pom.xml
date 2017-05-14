@@ -6,14 +6,44 @@
 	<groupId>cn.kanyun</groupId>
 	<artifactId>cpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<!--增加仓库配置,不然可能插件找不到,导致报错-->
+	<repositories>
+		<repository>
+			<id>people.apache.snapshots</id>
+			<url>
+				http://repository.apache.org/content/groups/snapshots-group/
+			</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
 	<build>
 		<plugins>
+			<!--设置maven编译的角度看版本-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			<!--设置maven-tomcat7热部署,需设置权限-->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<url>http://localhost:8080/cpa</url>
+					<server>admin</server>
+					<username>tomcat</username>
+					<password>tomcat</password>
+					<uriEncoding>UTF-8</uriEncoding>
 				</configuration>
 			</plugin>
 			<!--设置Maven构建项目为UTF-8编码格式-->

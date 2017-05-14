@@ -7,9 +7,13 @@
                 <div class="panel-body" crId="{{exam.cr_id}}">
                     <ul class="list" style="margin:0;padding:0;list-style:none">
                         <li ng-repeat='(key,option) in exam.options'>
+                            <!--<label>-->
+                               <!--<input type="radio" ng-model="optionData" name="optionsRadio{{i}}" value="{{key | CovertKey}}" ng-icheck >-->
+                                <!--{{key | CovertKey}} .{{option}}-->
+                            <!--</label>-->
                             <label>
-                               <input type="radio"  name="optionsRadio{{i}}" value="{{key | CovertKey}}" ng-icheck >
-                                {{key | CovertKey}} .{{option}}
+                                <input type="radio" ng-model="pomian" name="optionsRadio{{i}}" value="kangshifu" ng-icheck >
+                                kangshifu
                             </label>
                         </li>
                     </ul>

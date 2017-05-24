@@ -8,13 +8,28 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<!--增加仓库配置,不然可能插件找不到,导致报错-->
 	<repositories>
+		<!--如有Nexus私服, 取消注释并指向正确的服务器地址-->
+		<!--<repository>
+            <id>nexus-repos</id>
+            <name>Team Nexus Repository</name>
+            <url>http://127.0.0.1:8888/nexus/content/groups/public</url>
+        </repository>-->
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>http://maven.aliyun.com/nexus/content/repositories/central</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
 		<repository>
 			<id>people.apache.snapshots</id>
 			<url>
 				http://repository.apache.org/content/groups/snapshots-group/
 			</url>
 			<releases>
-				<enabled>false</enabled>
+				<enabled>true</enabled>
 			</releases>
 			<snapshots>
 				<enabled>true</enabled>
